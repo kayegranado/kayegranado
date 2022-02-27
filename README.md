@@ -1,87 +1,59 @@
-package GranadoKaye java;
 
-public class Granadokaye {
+    package GranadoKaye java;
+
+public class GranadoKaye {
+
+}  
+// An efficient Java program to remove all spaces
+// from a string
+
+class GFG
+{
+ 
+// Function to remove all spaces 
+// from a given string
+
+static int removeSpaces(char []str)
+{
+
+    // To keep track of non-space character count
+
+    int count = 0;
+ 
+
+    // Traverse the given string.
+
+    // If current character
+
+    // is not space, then place 
+
+    // it at index 'count++'
+
+    for (int i = 0; i<str.length; i++)
+
+        if (str[i] != ' ')
+
+            str[count++] = str[i]; // here count is
+
+                                    // incremented
+
+         
+
+    return count;
 }
-// Java program to find first
-// non-repeating character
-
-class GFG {
-
-    static final int NO_OF_CHARS = 256;
-
-    static char count[] = new char[NO_OF_CHARS];
  
+// Driver code
 
-    /* calculate count of characters 
+public static void main(String[] args)
+{
 
-       in the passed string */
+    char str[] = "g eeks for ge eeks ".toCharArray();
 
-    static void getCharCountArray(String str)
+    int i = removeSpaces(str);
 
-    {
-
-        for (int i = 0; i < str.length(); i++)
-
-            count[str.charAt(i)]++;
-
-    }
-
-
-    /* The method returns index of first non-repeating
-
-       character in a string. If all characters are repeating 
-
-       then returns -1 */
-
-    static int firstNonRepeating(String str)
-
-    {
-
-        getCharCountArray(str);
-
-        int index = -1, i;
- 
-
-        for (i = 0; i < str.length(); i++) {
-
-            if (count[str.charAt(i)] == 1) {
-
-                index = i;
-
-                break;
-
-            }
-
-        }
- 
-
-        return index;
-
-    }
- 
-
-    // Driver method
-
-    public static void main(String[] args)
-
-    {
-
-        String str = "geeksforgeeks";
-
-        int index = firstNonRepeating(str);
- 
-
-        System.out.println(
-
-            index == -1
-
-                ? "Either all characters are repeating or string "
-
-                      + "is empty"
-
-                : "First non-repeating character is "
-
-                      + str.charAt(index));
-
-    }
+    System.out.println(String.valueOf(str).subSequence(0, i));
 }
+} 
+ 
+// This code is contributed by Rajput-Ji
+
