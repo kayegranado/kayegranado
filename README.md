@@ -1,31 +1,87 @@
 package GranadoKaye java;
 
-public class DuplicateCountingCharacters {
+public class Granadokaye {
+}
+// Java program to find first
+// non-repeating character
 
-  public static void main(String[] args) {
-  
-   String string1 = 
-        int count;  
-          
-        //Converts given string into character array  
-        char string[] = string1.toCharArray();  
-          
-        System.out.println("Duplicate characters in a given string: ");  
-        //Counts each character present in the string  
-        for(int i = 0; i <string.length; i++) {  
-            count = 1;  
-            for(int j = i+1; j <string.length; j++) {  
-                if(string[i] == string[j] && string[i] != ' ') {  
-                    count++;  
-                    //Set string[j] to 0 to avoid printing visited character  
-                    string[j] = '0';  
-                }  
-            }  
-            //A character is considered as duplicate if count is greater than 1  
-            if(count > 1 && string[i] != '0')  
-                System.out.println(string[i]);  
-        }  
-    }  
+class GFG {
 
-  
-  }
+    static final int NO_OF_CHARS = 256;
+
+    static char count[] = new char[NO_OF_CHARS];
+ 
+
+    /* calculate count of characters 
+
+       in the passed string */
+
+    static void getCharCountArray(String str)
+
+    {
+
+        for (int i = 0; i < str.length(); i++)
+
+            count[str.charAt(i)]++;
+
+    }
+
+
+    /* The method returns index of first non-repeating
+
+       character in a string. If all characters are repeating 
+
+       then returns -1 */
+
+    static int firstNonRepeating(String str)
+
+    {
+
+        getCharCountArray(str);
+
+        int index = -1, i;
+ 
+
+        for (i = 0; i < str.length(); i++) {
+
+            if (count[str.charAt(i)] == 1) {
+
+                index = i;
+
+                break;
+
+            }
+
+        }
+ 
+
+        return index;
+
+    }
+ 
+
+    // Driver method
+
+    public static void main(String[] args)
+
+    {
+
+        String str = "geeksforgeeks";
+
+        int index = firstNonRepeating(str);
+ 
+
+        System.out.println(
+
+            index == -1
+
+                ? "Either all characters are repeating or string "
+
+                      + "is empty"
+
+                : "First non-repeating character is "
+
+                      + str.charAt(index));
+
+    }
+}
