@@ -1,0 +1,145 @@
+package kayeGranado. java;
+
+public class KayeGranadocandymachine{
+/**
+ *
+ * @author @kayegranado
+ */
+import java.util.Scanner;
+import kayeGranado.java.KayeGranadocandymachine;
+
+import null.KayeGranado;
+    
+   public static Scanner input = new Scanner(System.in);
+    public static String again;
+    public static int choose,quantity=1;
+    public static double total=0,pay;
+    public static void menu(){
+        
+    System.out.println("+++++++++++++++++++++++++++");
+    System.out.println("     Candy Machine Menu   ");
+    System.out.println(" 1. Candies         5 pesos");
+    System.out.println(" 2. Chips          20 pesos");
+    System.out.println(" 3. Gum             2 pesos");
+    System.out.println(" 4. Cookies        30 pesos");
+    System.out.println("+++++++++++++++++++++++++++");
+    }
+    
+    public static void order(){
+    System.out.println("Please Press 1 to Candies , Press 2 to Chips , Press 3 to Gum and Press 4 to Cookies");
+    choose = input.nextInt();
+       
+       //conditions
+       switch (choose) {
+           case 1 '->',:
+               System.out.println("How many Candies you want to Buy? :");
+               quantity = input.nextInt();
+               total = total +(quantity*5);
+               
+               System.out.println("Do you want to proceed with your next purchase? ");
+               System.out.println("Press Y if Yes and N if No: ");
+               again = input.next();
+               if(again.contains("Y")){
+                   order();
+               }else{
+                   System.out.println("Enter your payment here: ");
+                   pay = input.nextDouble();
+                   if(pay <=total){
+                       System.out.println("Not enough money");
+                   }else{
+                       System.out.println("Your Total Amount is " + total);
+                       total = pay-total;
+                       System.out.println("Your Change is " + total);
+                   }
+                       System.out.println("Thank you so much for your order! I hope you enjoy your purchase!");
+               order();
+               }
+           }
+           
+           case 2 -> {
+               System.out.println("How many Chips you want to Buy? :");
+               quantity = input.nextInt();
+               total = total +(quantity*20);
+               
+               System.out.println("Do you want to proceed with your next purchase? ");
+               System.out.println("Press Y if Yes and N if No: ");
+               again = input.next();
+               if(again.contains("Y")){
+                   order();
+               }else{
+                   System.out.println("Enter your payment here: ");
+                   pay = input.nextDouble();
+                   if(pay <=total){
+                       System.out.println("Not enough money");
+                   }else{
+                       System.out.println("Your Total Amount is " + total);
+                       total = pay-total;
+                       System.out.println("Your Change is " + total);
+                   }
+                       System.out.println("Thank you so much for your order! I hope you enjoy your purchase!");
+               order();
+               }
+           }
+           
+           case 3 -> {
+               System.out.println("How many Gum you want to Buy? :");
+               quantity = input.nextInt();
+               total = total +(quantity*2);
+               
+               System.out.println("Do you want to proceed with your next purchase? ");
+               System.out.println("Press Y if Yes and N if No: ");
+               again = input.next();
+               if(again.contains("Y")){
+                   order();
+               }else{
+                   System.out.println("Enter your payment here: ");
+                   pay = input.nextDouble();
+                   if(pay <=total){
+                       System.out.println("Not enough money");
+                   }else{
+                       System.out.println("Your Total Amount is " + total);
+                       total = pay-total;
+                       System.out.println("Your Change is " + total);
+                   }
+                       System.out.println("Thank you so much for your order! I hope you enjoy your purchase!");
+               order();
+               }
+           }
+           
+           case 4 -> {
+               System.out.println("How many Cookies you want to Buy? :");
+               quantity = input.nextInt();
+               total = total +(quantity*30);
+               
+               System.out.println("Do you want to proceed with your next purchase? ");
+               System.out.println("Press Y if Yes and N if No: ");
+               again = input.next();
+               if(again.contains("Y")){
+                   order();
+               }else{
+                   System.out.println("Enter your payment here: ");
+                   pay = input.nextDouble();
+                   if(pay <=total){
+                       System.out.println("Not enough money");
+                   }else{
+                       System.out.println("Your Total Amount is " + total);
+                       total = pay-total;
+                       System.out.println("Your Change is " + total);
+                   }
+                       System.out.println("Thank you so much for your order, I hope you enjoy your purchase!");
+               order();
+               }
+           }
+           default ->
+           }
+       }
+       
+    }
+    public static void main(String[] args) {
+       menu();
+       order();
+       
+    } 
+
+
+}
